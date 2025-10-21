@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>John Mark's Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary-blue': '#1D4ED8',
+                        'secondary-gray': '#E5E7EB',
+                        'dark-bg': '#0F172A',
+                        'dark-card': '#1E293B',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth scrolling for internal links */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header id="home" class="sticky top-0 z-50 shadow-md bg-white/95 backdrop-blur-sm">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+            <div class="logo text-2xl font-extrabold text-primary-blue tracking-wide">
+                J. MARK
+            </div>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#about" class="text-gray-600 hover:text-primary-blue transition duration-300 font-medium">About</a></li>
+                <li><a href="#projects" class="text-gray-600 hover:text-primary-blue transition duration-300 font-medium">Projects</a></li>
+                <li><a href="#contact" class="text-gray-600 hover:text-primary-blue transition duration-300 font-medium">Contact</a></li>
+            </ul>
+            <!-- Mobile Menu Button (Optional: requires JS, but we will keep it simple for now) -->
+            <button class="md:hidden text-gray-600 hover:text-primary-blue text-2xl" aria-label="Toggle Navigation">
+                <!-- Using a simple icon from lucide-react equivalent -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </nav>
+        
+        <!-- Shareable Link Section -->
+        <div class="bg-primary-blue/10 border-t border-primary-blue/30 py-3">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
+                <p id="linkDisplay" class="text-sm font-medium text-gray-700 md:mb-0 mb-2 truncate">
+                    Share Link: <span class="text-primary-blue font-bold cursor-pointer" onclick="copyLink()">
+                       https://johnmark-portfolio.netlify.app
+
+                    </span>
+                </p>
+                <button onclick="copyLink()" class="flex items-center text-sm font-semibold text-primary-blue hover:text-indigo-700 transition duration-300 bg-white px-3 py-1.5 rounded-full shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><rect width="13" height="13" x="9" y="9" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    <span id="copyButtonText">Copy Link</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-dark-bg text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <!-- Used a placeholder image URL, replace with a real one -->
+            <img src="https://placehold.co/120x120/4f46e5/ffffff?text=JM" alt="John Mark Profile"
+                 class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-primary-blue mb-6 shadow-xl">
+            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold mb-4 leading-tight">
+                Hello, I'm <span class="text-primary-blue">JOHN MARK</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                Front-End Developer | Graphic Designer | UI/UX Enthusiast
+            </p>
+            <a href="#projects" class="inline-block px-8 py-3 bg-primary-blue text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-indigo-700 transition duration-300 transform hover:scale-105">
+                View Projects
+            </a>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+            <h2 class="text-4xl font-bold text-center mb-10 text-gray-800 border-b-4 border-primary-blue/50 inline-block mx-auto pb-2">About Me</h2>
+            <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                I'm a passionate web developer dedicated to transforming ideas into beautiful and highly functional digital experiences. My specialization lies in front-end technologies, where I blend responsive design principles with modern frameworks to deliver seamless user interfaces.
+            </p>
+            <p class="text-lg text-gray-600 leading-relaxed">
+                I specialize in <strong class="text-primary-blue">HTML5</strong>, <strong class="text-primary-blue">CSS3 (Tailwind/Sass)</strong>, <strong class="text-primary-blue">JavaScript (ES6+)</strong>, and <strong class="text-primary-blue">React</strong>. Beyond coding, my background in graphic design allows me to approach development with a keen eye for aesthetics and user empathy, ensuring every project is not just technically sound but visually compelling.
+            </p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 md:py-24 bg-secondary-gray">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">My Work</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project Card 1 -->
+                <div class="project-card bg-white p-6 rounded-2xl shadow-xl transition duration-300 hover:shadow-2xl hover:scale-[1.02] border border-gray-100">
+                    <img src="https://placehold.co/600x400/1D4ED8/ffffff?text=Responsive+Website" alt="Project One Mockup" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-2">Project One: Marketing Site</h3>
+                    <p class="text-gray-600 mb-4">A fully responsive, multi-page business website built using modern HTML semantics, custom CSS, and vanilla JavaScript for interactive elements.</p>
+                    <a href="#" class="text-primary-blue font-medium hover:underline">View Live Site &rarr;</a>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card bg-white p-6 rounded-2xl shadow-xl transition duration-300 hover:shadow-2xl hover:scale-[1.02] border border-gray-100">
+                    <img src="https://placehold.co/600x400/f59e0b/ffffff?text=React+Task+App" alt="Project Two Mockup" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-2">Project Two: Task Tracker</h3>
+                    <p class="text-gray-600 mb-4">A dynamic single-page application (SPA) developed with React, focusing on component-based architecture and state management for productivity tracking.</p>
+                    <a href="#" class="text-primary-blue font-medium hover:underline">View Repository &rarr;</a>
+                </div>
+
+                <!-- Project Card 3 (New Placeholder) -->
+                <div class="project-card bg-white p-6 rounded-2xl shadow-xl transition duration-300 hover:shadow-2xl hover:scale-[1.02] border border-gray-100">
+                    <img src="https://placehold.co/600x400/ef4444/ffffff?text=UI%2FUX+Case+Study" alt="Project Three Mockup" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-2">Project Three: E-commerce UI/UX</h3>
+                    <p class="text-gray-600 mb-4">A complete user experience design and prototype for a modern e-commerce platform, showcasing Figma skills and accessibility considerations.</p>
+                    <a href="#" class="text-primary-blue font-medium hover:underline">View Case Study &rarr;</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-xl">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Get In Touch</h2>
+            <form class="bg-secondary-gray p-8 rounded-2xl shadow-2xl space-y-6">
+                
+                <input type="text" placeholder="Your Name" required 
+                       class="w-full p-4 border border-gray-300 rounded-xl focus:border-primary-blue focus:ring focus:ring-primary-blue/30 transition duration-150" />
+                
+                <input type="email" placeholder="Your Email" required 
+                       class="w-full p-4 border border-gray-300 rounded-xl focus:border-primary-blue focus:ring focus:ring-primary-blue/30 transition duration-150" />
+                
+                <textarea placeholder="Your Message" rows="5" required 
+                          class="w-full p-4 border border-gray-300 rounded-xl focus:border-primary-blue focus:ring focus:ring-primary-blue/30 transition duration-150 resize-none"></textarea>
+                
+                <button type="submit" 
+                        class="w-full px-8 py-3 bg-primary-blue text-white font-bold text-lg rounded-xl shadow-lg hover:bg-indigo-700 transition duration-300 transform hover:scale-[1.01]">
+                    Send Message
+                </button>
+            </form>
+            
+            <div class="text-center mt-8 space-y-4">
+                <p class="text-lg text-gray-600">
+                    Or reach me directly:
+                </p>
+                <div class="flex justify-center space-x-6">
+                    <a href="mailto:markjohnte335@gmail.com" class="text-primary-blue hover:text-indigo-600 font-medium transition duration-300 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        markjohnte335@gmail.com
+                    </a>
+                    <a href="tel:+1234567890" class="text-primary-blue hover:text-indigo-600 font-medium transition duration-300 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.08 2h3a2 2 0 0 1 2 1.72 17.65 17.65 0 0 0 .17 3.01 2 2 0 0 1-1.12 2.13l-1.4 1.27a15 15 0 0 0 6.62 6.62l1.27-1.4a2 2 0 0 1 2.13-1.12 17.65 17.65 0 0 0 3.01 .17 2 2 0 0 1 1.72 2Z"/></svg>
+                        +254 703269894 or +254 753805453 
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-dark-bg text-gray-400 py-6">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 John Mark. All rights reserved. Built with Tailwind CSS.</p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript for Copy Functionality -->
+    <script>
+        function copyLink() {
+            const linkText = "https://my-portfolio-app.io/john-mark";
+            const copyButtonText = document.getElementById('copyButtonText');
+
+            // Fallback for document.execCommand('copy') as navigator.clipboard.writeText() may not work in iframes
+            const tempInput = document.createElement('textarea');
+            tempInput.value = linkText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            
+            try {
+                document.execCommand('copy');
+                copyButtonText.textContent = 'Copied!';
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                copyButtonText.textContent = 'Failed to copy';
+            } finally {
+                document.body.removeChild(tempInput);
+                // Reset text after a short delay
+                setTimeout(() => {
+                    copyButtonText.textContent = 'Copy Link';
+                }, 2000);
+            }
+        }
+    </script>
+</body>
+</html>
